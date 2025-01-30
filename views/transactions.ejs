@@ -1,0 +1,24 @@
+<!-- views/transactions.ejs -->
+<h1>Transactions du groupe</h1>
+<p>Solde actuel : <%= balance %> </p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Montant</th>
+            <th>Description</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% transactions.forEach(transaction => { %>
+            <tr>
+                <td><%= transaction.type %></td>
+                <td><%= transaction.amount %></td>
+                <td><%= transaction.description %></td>
+                <td><%= transaction.date.toLocaleDateString() %></td>
+            </tr>
+        <% }); %>
+    </tbody>
+</table>

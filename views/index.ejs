@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/assets/css/styles.min.css" />
+    <link rel="stylesheet" href="/assets/css/styles.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="assets/js/index.js"></script>
+</head>
+<body>
+    <header class="header">
+      <div class="container-bg">
+        <img src="assets/img/header_bg.jpg" alt="bg">
+        <div class="bg-overlay"></div>
+    </div>
+    <!-- Rectangle gauche avec logo -->
+  <div class="logo-container"></div>
+  <div class="logo-container-style"></div>
+  <div class="circle-container">
+    <img src="assets/img/david.jpg" alt="Image" class="images">
+  </div>
+
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+        <div class="me-5">
+            <a href="#" class="navbar-brand">
+            <img src="/assets/img/Logo YWR 500px noir.png" alt="logo" class="logo me-5" width="150">
+            </a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-2 fs-5 fw-bold">
+            <li class="nav-item ">
+                <a href="#" class="nav-link active">Acceuil</a>
+            </li>
+            <li class="nav-item ">
+                <a href="#" class="nav-link">Membres</a>
+            </li>
+            <li class="nav-item ">
+                <a href="#a_propos" class="nav-link">A propos</a>
+            </li>
+            <li class="nav-item ">
+                <a href="#contact" class="nav-link">Contact</a>
+            </li>
+            </ul>
+            <a href="/auth/login" class="btn btn-success btn-connect" role="button">Connexion</a>
+            
+        </div>
+        </div>
+    </nav>
+  </div>
+
+  <div class="container translate">
+    <div class="banner">
+      <h1 class="fw-bold">Bienvenue, nous sommes</h1>
+      <h2>Young Worship Renewal</h2>
+      <p class="mt-3 ">Une communauté de jeunes engagés dans l'adoration et le service.  
+      </br> Rejoignez-nous pour vivre une foi authentique, renouvelée et inspirée par la grâce de Dieu.
+      </p>
+      <div class="mt-5">
+        <a href="/rejoindre" class="btn btn-join me-3">REJOINDRE YWR</a>
+        <a class="btn btn-learn" href="#a_propos">En savoir plus</a>
+      </div>
+    </div>
+  </div>
+    </header>
+
+    <section class="w-100 d-flex justify-content-center align-items-center mb-4" >
+        <div class="container mt-5 carousel-width" >
+            <div id="textCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+              
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#textCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#textCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#textCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#textCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+              </div>
+        
+              
+              <div class="carousel-inner ">
+                <div class="carousel-item active">
+                    <div class="carousel-content text-center">
+                        
+                        <button class="btn btn-primary btn-block ico   n-button rounded-circle p-3 bg-dark border-0 mb-3" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512" width="1em" height="1em" fill="currentColor" style="font-size: 50px" >
+                            <path d="M448 336v-288C448 21.49 426.5 0 400 0H96C42.98 0 0 42.98 0 96v320c0 53.02 42.98 96 96 96h320c17.67 0 32-14.33 32-31.1c0-11.72-6.607-21.52-16-27.1v-81.36C441.8 362.8 448 350.2 448 336zM144 144c0-8.875 7.125-15.1 16-15.1L208 128V80c0-8.875 7.125-15.1 16-15.1l32 .0009c8.875 0 16 7.12 16 15.1V128L320 128c8.875 0 16 7.121 16 15.1v32c0 8.875-7.125 16-16 16L272 192v112c0 8.875-7.125 16-16 16l-32-.0002c-8.875 0-16-7.127-16-16V192L160 192c-8.875 0-16-7.127-16-16V144zM384 448H96c-17.67 0-32-14.33-32-32c0-17.67 14.33-32 32-32h288V448z"></path>
+                            </svg>
+                        </button>
+                        
+                        <p class="text-center fst-italic" style="font-size: 16px;font-weight: 600;">"Je connais tes oeuvres. Je sais que tu n'est ni froid ni bouillant. Puisses-tu etre froid ou bouillant!"</p>
+                        <p class="text-center fw-bold">Apoclipsy 3:15</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="carousel-content text-center">
+                    
+                     <button class="btn btn-primary btn-block ico   n-button rounded-circle p-3 bg-dark border-0 mb-3" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512" width="1em" height="1em" fill="currentColor" style="font-size: 50px" >
+                        <path d="M448 336v-288C448 21.49 426.5 0 400 0H96C42.98 0 0 42.98 0 96v320c0 53.02 42.98 96 96 96h320c17.67 0 32-14.33 32-31.1c0-11.72-6.607-21.52-16-27.1v-81.36C441.8 362.8 448 350.2 448 336zM144 144c0-8.875 7.125-15.1 16-15.1L208 128V80c0-8.875 7.125-15.1 16-15.1l32 .0009c8.875 0 16 7.12 16 15.1V128L320 128c8.875 0 16 7.121 16 15.1v32c0 8.875-7.125 16-16 16L272 192v112c0 8.875-7.125 16-16 16l-32-.0002c-8.875 0-16-7.127-16-16V192L160 192c-8.875 0-16-7.127-16-16V144zM384 448H96c-17.67 0-32-14.33-32-32c0-17.67 14.33-32 32-32h288V448z"></path>
+                        </svg>
+                    </button>
+                    <p class="text-center fst-italic" style="font-size: 16px;font-weight: 600;">"Que personne ne méprise ta jeunesse; mais sois un modèle pour les fidèles, en parole, en conduite, en charité, en foi, en pureté."</p>
+                    <p class="text-center fw-bold">1 Timothée 4: 12</p>
+                </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="carousel-content text-center">
+                    
+                     <button class="btn btn-primary btn-block ico   n-button rounded-circle p-3 bg-dark border-0 mb-3" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512" width="1em" height="1em" fill="currentColor" style="font-size: 50px" >
+                        <path d="M448 336v-288C448 21.49 426.5 0 400 0H96C42.98 0 0 42.98 0 96v320c0 53.02 42.98 96 96 96h320c17.67 0 32-14.33 32-31.1c0-11.72-6.607-21.52-16-27.1v-81.36C441.8 362.8 448 350.2 448 336zM144 144c0-8.875 7.125-15.1 16-15.1L208 128V80c0-8.875 7.125-15.1 16-15.1l32 .0009c8.875 0 16 7.12 16 15.1V128L320 128c8.875 0 16 7.121 16 15.1v32c0 8.875-7.125 16-16 16L272 192v112c0 8.875-7.125 16-16 16l-32-.0002c-8.875 0-16-7.127-16-16V192L160 192c-8.875 0-16-7.127-16-16V144zM384 448H96c-17.67 0-32-14.33-32-32c0-17.67 14.33-32 32-32h288V448z"></path>
+                        </svg>
+                    </button>
+                    
+                    <p class="text-center fst-italic" style="font-size: 16px;font-weight: 600;">"Mais l'heure vient, et elle est déjà venue, où les vrais adorateurs adoreront le Père en esprit et en vérité; car ce sont là les adorateurs que le Père demande."</p>
+                    <p class="text-center fw-bold">Jean 4: 23</p>
+                </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="carousel-content text-center">
+                    
+                     <button class="btn btn-primary btn-block ico   n-button rounded-circle p-3 bg-dark border-0 mb-3" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512" width="1em" height="1em" fill="currentColor" style="font-size: 50px" >
+                        <path d="M448 336v-288C448 21.49 426.5 0 400 0H96C42.98 0 0 42.98 0 96v320c0 53.02 42.98 96 96 96h320c17.67 0 32-14.33 32-31.1c0-11.72-6.607-21.52-16-27.1v-81.36C441.8 362.8 448 350.2 448 336zM144 144c0-8.875 7.125-15.1 16-15.1L208 128V80c0-8.875 7.125-15.1 16-15.1l32 .0009c8.875 0 16 7.12 16 15.1V128L320 128c8.875 0 16 7.121 16 15.1v32c0 8.875-7.125 16-16 16L272 192v112c0 8.875-7.125 16-16 16l-32-.0002c-8.875 0-16-7.127-16-16V192L160 192c-8.875 0-16-7.127-16-16V144zM384 448H96c-17.67 0-32-14.33-32-32c0-17.67 14.33-32 32-32h288V448z"></path>
+                        </svg>
+                    </button>
+                    
+                    <p class="text-center fst-italic" style="font-size: 16px;font-weight: 600;">"Je ne vous appelle plus serviteurs, parce que le serviteur ne sait pas ce que fait son maître; mais je vous ai appelés amis."</p>
+                    <p class="text-center fw-bold">Jean 15: 15a</p>
+                </div>
+                </div>
+              </div>
+        
+              
+              <button class="carousel-control-prev" type="button" data-bs-target="#textCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#textCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+    </section>
+    
+    <section class="d-flex flex-column align-items-center justify-content-center" id="a_propos">
+      <h2 class="fw-bold mt-2">Ce qui nous définit</h2>
+      <div>
+        <a href="#historique" class="btn me-4">HISTORIQUE</a>
+        <a href="#valeur" class="btn me-4">VALEUR</a>
+        <a href="#mission" class="btn">MISSION</a>
+      </div>
+    </section>
+
+    <section class="grid-container my-4" >
+      <div class="row">
+        <div class="col-md-6 grid-item">
+          <img src="assets/img/Grid_1.jpg" alt="1.1" class="survol">
+        </div>
+        <div class="col-md-6 grid-item">
+          <div class="text-overlay historique" id="historique">
+            <div>
+              <h6 class="fw-bold">Historique</h6>
+              <p class="fs-5">Découvrez l'histoire de notre parcours.</p>
+            </div>
+            <a href="historique.html" class="btn-arrow">
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+          <img src="assets/img/grid_2.jpg" alt="1.2" >
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-7 p-0 grid-item">
+          <div class="text-overlay valeur" id="valeur">
+            <div>
+              <h6 class="fw-bold">Valeur</h6>
+              <p class="fs-5">Les principes qui nous guident.</p>
+            </div>
+            <a href="valeur.html" class="btn-arrow">
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+          <img src="assets/img/grid_3.jpg" alt="2.1">
+        </div>
+        <div class="col-md-5 p-0 grid-item">
+          <img src="assets/img/grid_4.jpg" alt="2.2" class="survol">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 grid-item">
+          <img src="assets/img/grid_5.jpg" class="survol" alt="3.1">
+        </div>
+        <div class="col-md-6 grid-item">
+          <div class="text-overlay mission" id="mission">
+            <div>
+              <h6 class="fw-bold">Mission</h6>
+              <p class="fs-5">Nos objectifs et nos aspirations.</p>
+            </div>
+            <a href="mission.html" class="btn-arrow">
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+          <img src="assets/img/grid_6.jpg" alt="3.2" >
+        </div>
+      </div>
+    </section>
+
+
+    <div class="container py-5 section-center">
+      <div class="row align-items-start"> 
+        <div class="col-12 col-md-6 text-left mt-3 px-5" >
+          <div class="vertical-line"></div>
+          <div class="translate" >
+            <h3 class="title-h3 fw-bold">Ils l'ont vécu,<br> ils vous racontent</h3>
+            <p class="text-large">Des expériences uniques qui témoignent de la grâce divine au quotidien.</p>
+          </div>
+        </div>
+  
+        <div class="col-12 col-md-6 d-flex justify-content-center">
+          <div class="img-container">
+            <img src="assets/img/Nantenaina.jpg" alt="Photo" class="img-fluid rounded-3">
+          </div>
+          <div class="text-box">
+            <p class="resp-desc mb-0">"Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis odit, molestiae ipsam cum impedit iste at ad ut illo neque magni ab consequatur?"</p>
+            <h2 class="mb-0 fw-bold">Nantenaina</h2>
+            <p class="fs-5 mt-0 mb-0">Responsable</p>
+            <i class="bi bi-quote quote-icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+
+
+    <button class="btn btn-primary" id="scrollTopBtn" title="Retour en haut"><i class="bi bi-arrow-up fs-3 fw-bold"></i></button>
+
+
+    <!-- <div class="popup alert alert-success text-center" id="popupMessage" role="alert">
+      Bienvenue,nous somme YWR
+    </div> -->
+
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+
+    
+</body>
+</html>
+
+        <!-- <% if (message) { %>
+           <div class="alert alert-<%= message.type %> mt-3 text-center fw-bold">
+               <%= message.message %>
+           </div>
+        <% } %> -->
