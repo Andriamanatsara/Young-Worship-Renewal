@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Liste des Membres</title>
+    <link rel="stylesheet" href="/assets/css/membre.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <header class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+            <div class="me-5">
+                <a href="/" class="navbar-brand">
+                    <img src="/assets/img/Logo YWR 500px noir.png" alt="logo" class="logo me-5" width="150">
+                </a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-2 fs-5">
+                <li class="nav-item ">
+                    <a href="/" class="nav-link active">Acceuil</a>
+                </li>
+                <li class="nav-item ">
+                    <a href="" class="nav-link">Membres</a>
+                </li>
+                <li class="nav-item ">
+                    <a href="/#a_propos" class="nav-link">A propos</a>
+                </li>
+                <li class="nav-item ">
+                    <a href="/#contact" class="nav-link">Contact</a>
+                </li>
+                </ul>
+                <a href="/connexion" class="btn btn-success btn-connect" role="button">Connexion</a>
+                
+            </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+<!-- En-tête -->
+<div class="text-center py-2">
+    <h2 class="fw-bold">Galerie des Membres YWR</h2>
+    <span class="lead">Découvrez nos membres engagés dans différentes catégories</span>
+</div>
+  
+  <!-- Conteneur principal -->
+  <div class="container mt-4 gallery-container">
+  
+    <!-- Les boutons de filtrage (Bootstrap 5) avec classes personnalisées -->
+    <div id="myBtnContainer" class="btn-group d-flex justify-content-center mb-4 flex-wrap">
+      <button class="btn btn-outline-secondary active" onclick="filterSelection('all')">Afficher tout</button>
+      <button class="btn btn-outline-secondary" onclick="filterSelection('media')">Média</button>
+      <button class="btn btn-outline-secondary" onclick="filterSelection('danse')">Danse</button>
+      <button class="btn btn-outline-secondary" onclick="filterSelection('chant')">Chant</button>
+      <button class="btn btn-outline-secondary" onclick="filterSelection('message')">Message</button>
+      <button class="btn btn-outline-secondary" onclick="filterSelection('intercession')">Intercession</button>
+      <button class="btn btn-outline-secondary" onclick="filterSelection('logistique')">Logistique</button>
+    </div>
+  
+    <!-- Galerie des membres -->
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+      <!-- Membre Média -->
+      <div class="col column media show">
+        <div class="card">
+          <img src="assets/img/avatar.png" class="card-img-top" alt="Membre Média 1">
+          <div class="card-body text-center">
+              <h5 class="">Jean</h5>
+          </div>
+          <div class="profil-overlay text-center">
+              <div class="content-overlay">
+                  <h5 class="">Jean</h5>
+                  <p class="lead">media</p>
+              </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Membre Danse -->
+  <div class="col column danse show">
+      <div class="card">
+        <img src="assets/img/david.jpg" class="card-img-top" alt="Membre Danse 1">
+        <div class="card-body text-center">
+          <h5>David</h5>
+        </div>
+        <div class="profil-overlay text-center">
+          <div class="content-overlay">
+            <h5>David</h5>
+            <p>Danse</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Membre Chant -->
+    <div class="col column chant show">
+      <div class="card">
+        <img src="assets/img/1737053918936.jpg" class="card-img-top" alt="Membre Chant 1">
+        <div class="card-body text-center">
+          <h5>Augustin</h5>
+        </div>
+        <div class="profil-overlay text-center">
+          <div class="content-overlay">
+            <h5>Augustin</h5>
+            <p>Chant</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Membre Message -->
+    <div class="col column message show">
+      <div class="card">
+        <img src="assets/img/grid_2.jpg" class="card-img-top" alt="Membre Message 1">
+        <div class="card-body text-center">
+          <h5>Nantenaina</h5>
+        </div>
+        <div class="profil-overlay text-center">
+          <div class="content-overlay">
+            <h5>Nantenaina</h5>
+            <p>Message</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Membre Intercession -->
+    <div class="col column intercession show">
+      <div class="card">
+        <img src="assets/img/IMG_0491.jpg" class="card-img-top" alt="Membre Intercession 1">
+        <div class="card-body text-center">
+          <h5>Marie</h5>
+        </div>
+        <div class="profil-overlay text-center">
+          <div class="content-overlay">
+            <h5>Marie</h5>
+            <p>Intercession</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Membre Logistique -->
+    <div class="col column logistique show">
+      <div class="card">
+        <img src="assets/img/grid_1.jpg" class="card-img-top" alt="Membre Logistique 1">
+        <div class="card-body text-center">
+          <h5>Alice</h5>
+        </div>
+        <div class="profil-overlay text-center">
+          <div class="content-overlay">
+            <h5>Alice</h5>
+            <p>Logistique</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Membre Média -->
+    <div class="col column media show">
+      <div class="card">
+        <img src="assets/img/grid_5.jpg" class="card-img-top" alt="Membre Média 2">
+        <div class="card-body text-center">
+          <h5>Benoit</h5>
+        </div>
+        <div class="profil-overlay text-center">
+          <div class="content-overlay">
+            <h5>Benoit</h5>
+            <p>Média</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Membre Danse -->
+    <div class="col column danse show">
+      <div class="card">
+        <img src="assets/img/grid_4.jpg" class="card-img-top" alt="Membre Danse 2">
+        <div class="card-body text-center">
+          <h5>Lucie</h5>
+        </div>
+        <div class="profil-overlay text-center">
+          <div class="content-overlay">
+            <h5>Lucie</h5>
+            <p>Danse</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Membre Chant -->
+    <div class="col column chant show">
+      <div class="card">
+        <img src="assets/img/grid_6.jpg" class="card-img-top" alt="Membre Chant 2">
+        <div class="card-body text-center">
+          <h5>Jacques</h5>
+        </div>
+        <div class="profil-overlay text-center">
+          <div class="content-overlay">
+            <h5>Jacques</h5>
+            <p>Chant</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Membre Message -->
+    <div class="col column message show">
+      <div class="card">
+        <img src="assets/img/Logo YWR 500px blanc.png" class="card-img-top" alt="Membre Message 2">
+        <div class="card-body text-center">
+          <h5>Emmanuel</h5>
+        </div>
+        <div class="profil-overlay text-center">
+          <div class="content-overlay">
+            <h5>Emmanuel</h5>
+            <p>Message</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div> <!-- Fin de la galerie -->
+  </div> <!-- Fin du conteneur principal -->
+
+
+
+
+  <div class="text-center py-4">
+    <h2 class="fw-bold">Liste des membres</h2>
+    <span class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</span>
+  </div>
+
+
+  <%- include('./member-list.ejs') %>
+
+    <!-- POPUP MOBILE -->
+    <div class="overlay" id="overlay"></div>
+    <div class="profile-popup" id="profilePopup">
+        <button class="close-btn" id="closePopup">&times;</button>
+        <div class="profile-container">
+            <img id="popupImage" src="" alt="Photo de profil">
+            <div class="profile-info">
+                <h5 id="popupName"></h5>
+                <div class="profile-role" id="popupRole"></div>
+                <div class="profile-address" id="popupAddress"></div>
+                <div class="profile-phone" id="popupPhone"></div>
+                <div class="profile-icons">
+                    <a id="popupFacebook" href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a id="popupEmail" href="#"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="mt-3">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6" id="contact">
+                        <img src="assets/img/Logo YWR 500px blanc.png" alt="Logo" width="100" class="mb-3">
+                        <h5>Contact</h5>
+                        <div class="contact-info">
+                            <p><i class="bi bi-telephone-fill"></i> +261 34 63 013 23</p>
+                            <p><i class="fa fa-envelope"></i> ywr@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 footer-right">
+                        <h5>À propos</h5>
+                        <p>Young Worship Renewal est une communauté dédiée à rassembler des jeunes autour de la foi et de l'adoration.</p>
+                        <h5 class="mt-3">Suivez-nous</h5>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/votrepage" aria-label="Suivez-nous sur Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/votrepage" aria-label="Suivez-nous sur Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.tiktok.com/@votrepage" aria-label="Suivez-nous sur TikTok"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center copyright">
+            <span>&copy; 2025 Young Worship Renewal. Tous droits réservés.</span>
+        </div>
+    </footer>
+
+    <script src="assets/js/membre.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<%- include('../partials/dashboard-header.ejs') %>
+
+
+    <div class="top-container">
+        <div class="top-right-content">
+            <!-- Profil -->
+            <div class="profile-section">
+              <i class="bi bi-person-circle"></i>
+              <span>Profil</span>
+            </div>
+      
+            <!-- Search bar -->
+            <form class="search-bar" method="GET" action="#">
+              <input type="text" placeholder="Recherche..." name="search">
+              <button type="submit"><i class="bi bi-search"></i></button>
+            </form>
+        </div>
+        <div class="btn-disconnect">
+            <form action="" method="get">
+              <button class="btn btn-danger logout-btn " title="Déconnexion">
+                <i class="bi bi-box-arrow-right d-inline d-md-none fw-bold"></i> 
+                <span class="d-none d-md-inline">Déconnexion</span>
+              </button>
+            </form>
+        </div>
+    </div>   
+
+    <div class="container mt-4">
+      <div class="row">
+          <div class="col-md-9">
+          <h5 class="fw-bold mb-2">Membership</h5>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card p-3 mb-2 card-total-members">
+                  <h6 class="fw-bold"><small>Total de membres</small></h6>
+                  <div class="membership-stats">
+                    <div class="number text-center">
+                      <h1 class="fw-bold">120</h1>
+                    </div>
+                    <div class="percentage">
+                      <p class="text-success">+12%</p>
+                      <p class="fw-bold"><small>par rapport aux 28 derniers jours</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card p-3 mb-2 card-new-members">
+                  <h6 class="fw-bold"><small>Membres inscrits ce mois-ci</small></h6>
+                  <div class="membership-stats">
+                    <div class="number text-center">
+                      <h1 class="fw-bold">05</h1>
+                    </div>
+                    <div class="percentage">
+                      <p class="text-danger">- 2%</p>
+                      <p class="fw-bold"><small>par rapport aux 28 derniers jours</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+              <div class="col-md-4">
+                <div class="card p-3 mb-2 card-age-distribution">
+                  <h6 class="fw-bold"><small>Répartition des membres par âge</small></h6>
+                  <canvas id="ageChart"></canvas>
+                </div>
+              </div>
+          </div>
+          <h5 class="fw-bold mb-2">Finances</h5>
+          <div class="row">
+              <div class="col-md-4">
+                <div class="card shadow p-3 mb-4  card-total-income">
+                  <h6 class="fw-bold"><small>Total des contributions</small></h6>
+                  <div class="number text-center">
+                      <h3 class="fw-bold my-4">2.550.000<Small class="fs-6">Ar</Small></h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card shadow p-3 mb-4 card-expenses">
+                  <h6 class="fw-bold"><small>Total des dépenses</small></h6>
+                  <div class="number text-center">
+                      <h3 class="fw-bold my-4">325.000<Small class="fs-6">Ar</Small></h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card shadow p-3 mb-4 card-net-balance">
+                  <h6 class="fw-bold"><small>Solde restant</small></h6>
+                  <div class="number text-center">
+                      <h3 class="fw-bold my-4">2.250.000<Small class="fs-6">Ar</Small></h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 p-3 card card-calendar">
+              <p>Calendrier...</p>
+          </div>
+      </div>
+  </div>
+
+
+  <%- include('../partials/dashboard-footer.ejs') %>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="icon" type="image/x-icon" href="/assets/img/Logo YWR 500px blanc.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+  <link rel="stylesheet" href="/assets/css/dashboard.css">
+  <link rel="stylesheet" href="/assets/css/membre.css">
+</head>
+</head>
+<body>
+
+  <button class="hamburger-btn" onclick="toggleSidebar()">
+    <i class="bi bi-menu-button"></i>
+  </button>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-content">
+      <!-- Logo -->
+      <div class="logo">
+        <a href="/">
+          <img src="/assets/img/Logo YWR 500px blanc.png" alt="Logo" width="150">
+        </a>
+      </div>
+
+      <!-- Menu -->
+      
+        <div class="menu fw-bold">
+        <a href="/admin/tableau_de_bord" class="btn menu-item <%= page === 'dashboard' ? 'active' : '' %>"><i class="bi bi-speedometer2"></i> Tableau de bord</a>
+        <a href="/admin/liste-membre" class="btn menu-item <%= page === 'liste-membre' ? 'active' : '' %>"><i class="bi bi-people"></i> Membres</a>
+        <a href="#" class="btn menu-item"><i class="bi bi-cash-stack"></i> Comptabilité</a>
+        <a href="#" class="btn menu-item"><i class="bi bi-file-earmark-text"></i> Raport</a>
+        <a href="#" class="btn menu-item" style="margin-top: auto;"><i class="bi bi-gear"></i> Paramètre</a>
+        </div>
+      <!-- Footer -->
+      <div class="footer">
+        <div class="footer-left">© 2025 YWR</div>
+        <div class="footer-right">Version 1.0</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="main-content mt-4">
