@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
 
-router.get('/tableau_de_bord',userController.userConected, async (req, res) => {
+router.get('/tableau-de-bord',userController.userConected, async (req, res) => {
     try {
         res.render('admin/dashboard', {title : 'Tablea de board YWR', page : 'dashboard'});
     } catch (err) {

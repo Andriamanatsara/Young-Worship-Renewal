@@ -86,7 +86,7 @@ exports.login = async (req, res) => {
             message: 'Connexion réussie.'
         };
 
-        res.redirect('/'); 
+        res.redirect('/admin/tableau-de-bord'); 
     } catch (error) {
         console.error('Erreur lors de la connexion :', error);
         req.session.message = {
