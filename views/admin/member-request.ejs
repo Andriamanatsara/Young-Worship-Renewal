@@ -1,0 +1,112 @@
+<%- include('../partials/dashboard-header.ejs') %>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md">
+            <div class="table-container">
+                <!-- Barre de recherche -->
+                <div class="search-container">
+                    <input type="text" id="searchInput" class="form-control" placeholder="Rechercher un membre..." oninput="searchTable()">
+                    <button class="btn btn-secondary" id="clearSearchBtn" onclick="clearSearch()" style="display:none;">×</button>
+                </div>
+                
+                <% if (members != '') { %>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Membres</th>
+                            <th class="text-center">Status</th>
+                            <th class="text-center" onclick="sortTable(0)"><span class="sort-indicator">A - Z ▼</span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="memberTable" class="scrollable-tbody">
+                        <% members.forEach((member) => { %>
+                        <tr>
+                            <td class="member-info">
+                                <img src="/Pictures/<%= member.screenMember %>" alt="" class="rounded-circle">
+                                <div>
+                                    <span class="member-name"><%= member.name %> <%= member.surname %></span><br>
+                                    <small><%= member.engagement %></small>
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <p><i class="spinner-grow text-warning" style="width: 15px;height: 15px;"></i><span class="d-none d-md-inline"> <%= member.status %></span></p>
+                            </td>
+                            <td>
+                                <div class="button d-flex gap-2">
+                                    <button type="button" class="btn btn-warning btn-sm" onclick="openConfirmationModal('/admin/approve/<%= member._id %>', 'Accepter')">
+                                        <i class="bi bi-check"></i> 
+                                        <span class="d-none d-md-inline"> Accepter</span>
+                                    </button>
+                                
+                                    <button type="button" class="btn btn-outline-danger btn-sm" onclick="openConfirmationModal('/admin/reject/<%= member._id %>', 'Rejeter')">
+                                        <i class="bi bi-x"></i>
+                                        <span class="d-none d-md-inline"> Rejeter</span>
+                                    </button>
+                                </div>                                
+                                
+                            </td>
+                        </tr>
+                        <% }) %>
+                    </tbody>
+                    
+                </table>
+                <% } else {%>
+                    <div class="text-center p-4">
+                        <span class="text-secondary fw-bold">Aucun membre en attente trouvé.</span>
+                    </div>
+                <% } %>
+                <div id="noResultsRow" class="text-center">
+                    <span class="text-secondary p-2 fw-bold">Aucun membre trouvé</span>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<!-- Modal de confirmation -->
+<div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmationModalLabel"><img src="/assets/img/Logo YWR 500px noir.png" alt="logo" width="50"> Confirmation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p id="modalMessage" class="text-center">Êtes-vous sûr de vouloir continuer ?</p>
+            </div>
+            <div class="modal-footer border-0">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                <button type="button" class="btn btn-primary" id="confirmAction">Confirmer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    let actionUrl = "";
+
+    function openConfirmationModal(url, action) {
+        actionUrl = url; 
+        document.getElementById('modalMessage').textContent = `Voulez-vous vraiment ${action.toLowerCase()} cette demande ?`;
+        
+        const modal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+        modal.show();
+    }
+
+    document.getElementById('confirmAction').addEventListener('click', function() {
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = actionUrl;
+        document.body.appendChild(form);
+        form.submit();
+    });
+</script>
+
+
+
+
+<%- include('../partials/dashboard-footer.ejs') %>

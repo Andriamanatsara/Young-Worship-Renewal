@@ -20,6 +20,12 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: null,
   },
+  role: { 
+    type: String, 
+    required: true, 
+    enum: ['member', 'admin'] ,
+    default: 'member'
+},
   resetTokenExpiration: {
     type: Date,
     default: null,

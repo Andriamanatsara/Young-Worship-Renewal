@@ -95,7 +95,6 @@ tbody td {
     text-align: center;
     background: #fff;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
 }
 .profile-container img {
@@ -143,6 +142,7 @@ tbody td {
     padding: 20px;
     width: 90%;
     max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
 }
 .profile-popup.active {
@@ -165,8 +165,12 @@ tbody td {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: none;
+    background: #00000069;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
     border: none;
+    color: #f8f9fa;
     font-size: 20px;
     cursor: pointer;
 }
@@ -184,7 +188,12 @@ tbody td {
     }
 }
 
-
+#noResultsRow{
+    display: none;
+    width: inherit;
+    justify-content: center;
+    align-items: center;
+}
 
 
 

@@ -7,7 +7,6 @@ const session = require('express-session');
 
 const indexRoute = require('./routes/indexRoute');
 const userRoute = require('./routes/userRoute');
-const transactionRoutes = require('./routes/transactionRoute');
 const dashboard = require('./routes/dashboardRoute');
 
 dotenv.config();
@@ -42,9 +41,7 @@ app.use((req, res, next) => {
 
 
 app.use('/', indexRoute);
-app.use('/auth', userRoute);
-app.use('/', userRoute);
-app.use('/transactions', transactionRoutes);
+app.use('/users', userRoute);
 app.use('/admin', dashboard);
 
 const PORT = process.env.PORT || 3000;

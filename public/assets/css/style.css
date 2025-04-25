@@ -8,21 +8,19 @@ body{
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    background-color: rgb(207, 205, 205);
+    background-color: rgb(240, 240, 240);
 }
 
 .header{
-    width: 100%;
-    height: 108vh;
+  position: relative;
+  width: 100%;
+  height: 108vh;
 }
 
 .container-bg {
   position: absolute;
-  top: 0;
-  left: 0;
   z-index: -99;
   width: 70%;
-  height: 100vh;
   overflow: hidden;
 }
 
@@ -31,6 +29,7 @@ body{
   height: 100%;
   object-fit: cover;
 }
+
 .bg-overlay {
   position: absolute;
   top: 0;
@@ -46,11 +45,15 @@ body{
   left: -50px;
   width: 400px;
   height: 200px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   border-radius: 100px;
   background-color: #ffffff;
   box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.3);
   z-index: 1;
 }
+
 
 .logo-container-style {
   position: absolute;
@@ -65,14 +68,14 @@ body{
 }
 
 .circle-container {
-  width: 950px;
-  height: 950px;
+  width: 135vh;
+  height: 135vh;
   border: 30px solid #ffffffcc;
   border-radius: 50%;
   position: absolute;
   top: -15%;
   right: -220px;
-  z-index: 1;
+  z-index: -1;
   overflow: hidden;
 }
 
@@ -167,12 +170,15 @@ body{
   }
 }
 
+.carousel{
+  background-color: #fff;
+  border-radius: 10px;
+}
+
 .carousel-item  {
   font-size: 1.25rem;
   color: #333;
-  background-color: #f8f9fa;
   padding: 20px;
-  border-radius: 5px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
@@ -466,6 +472,14 @@ line-height: 1.2;
   top: -100px;
   text-shadow: 7px 7px 10px rgba(0, 0, 0, 0.4);
 }
+
+.lire-plus{
+  position: absolute;
+  bottom: 70px;
+  right: -3%;
+  font-size: 1.2rem;
+}
+
 
 @media (min-width: 768px) {
   .text-box {

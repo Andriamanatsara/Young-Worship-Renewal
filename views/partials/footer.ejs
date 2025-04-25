@@ -27,3 +27,33 @@
         <span>&copy; 2025 Young Worship Renewal. Tous droits réservés.</span>
     </div>
   </footer>
+
+  <!-- Modal de confirmation -->
+<div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmationModalLabel"><img src="/assets/img/Logo YWR 500px noir.png" alt="logo" width="50"> Déconnexion</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p id="modalMessage" class="text-center">Êtes-vous sûr de vouloir continuer ?</p>
+            </div>
+            <div class="modal-footer border-0">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                <a href="/users/logout" type="button" class="btn btn-danger" id="confirmDisconnect">Déconnexion</a>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+  <script>
+  
+    function openConfirmationModal(action)  {
+        document.getElementById('modalMessage').textContent = `Êtes-vous sûr(e) de vouloir vous ${action.toLowerCase()} ?`;
+        
+        const modal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+        modal.show();
+    }
+  
+  </script>

@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="container mt-4 mb-3">
     <div class="row">
         <div class="col-md-8">
             <div class="table-container">
@@ -8,67 +8,45 @@
                     <button class="btn btn-secondary" id="clearSearchBtn" onclick="clearSearch()" style="display:none;">×</button>
                 </div>
                 
+                <% if (members != '') { %>
                 <table class="table">
                     <thead>
                         <tr>
                             <th>Membres</th>
-                            <th onclick="sortTable(0)">Trier par <span class="sort-indicator">▲</span></th>
+                            <th onclick="sortTable(0)"><span class="sort-indicator">A - Z ▼</span></th>
                         </tr>
                     </thead>
                     <tbody id="memberTable" class="scrollable-tbody">
-                        <tr data-id="1" data-name="Jean Rakotobe" data-engagement="Choriste" data-role="admin"
-                            data-address="Antananarivo" data-phone="+261 34 12 345 67" 
-                            data-facebook="https://facebook.com/jeanrakotobe" data-email="jean@example.com"
-                            data-image="/assets/img/grid_5.jpg">
+                        <% members.forEach((member) => { %>
+                        <tr data-id="<%= member.id %>" 
+                            data-name="<%= member.surname %>" 
+                            data-engagement="<%= member.engagement %>" 
+                            data-role="<%= member.roleInGroup %>"
+                            data-address="<%= member.adress %>" 
+                            data-phone="<%= member.phoneNumber %>" 
+                            data-facebook="https://facebook.com/<%= member.facebook %>" 
+                            data-email="<%= member.email %>" 
+                            data-image="/Pictures/<%= member.screenMember %>">
                             <td class="member-info">
-                                <img src="/assets/img/grid_5.jpg" alt="" class="rounded-circle">
+                                <img src="/Pictures/<%= member.screenMember %>" alt="" class="rounded-circle">
                                 <div>
-                                    <span class="member-name">Rakotobe Jean</span><br>
-                                    <small>Choriste</small>
+                                    <span class="member-name"><%= member.name %> <%= member.surname %></span><br>
+                                    <small><%= member.engagement %></small>
                                 </div>
                             </td>
-                            <td>
-                                <button class="btn btn-danger btn-sm float-end"><i class="fa fa-trash"></i></button>
-                                <button class="btn btn-warning btn-sm me-2 float-end"><i class="fa fa-edit"></i></button>
-                            </td>
                         </tr>
-                        <tr data-id="2" data-name="ANDRIAMANATSARA Nomen'A Nantenaina" data-engagement="Musicien" data-role="Admin"
-                            data-address="Tananarive" data-phone="+261 38 17 640 71"
-                            data-facebook="https://facebook.com/marierandrianasolo" data-email="marie@example.com"
-                            data-image="/assets/img/Grid_1.jpg">
-                            <td class="member-info">
-                                <img src="/assets/img/Grid_1.jpg" alt="" class="rounded-circle">
-                                <div>
-                                    <span class="member-name">ANDRIAMANATSARA Nomen'A Nantenaina</span><br>
-                                    <small>Musicien</small>
-                                </div>
-                            </td>
-                            <td>
-                                <button class="btn btn-danger btn-sm float-end"><i class="fa fa-trash"></i></button>
-                                <button class="btn btn-warning btn-sm me-2 float-end"><i class="fa fa-edit"></i></button>
-                            </td>
-                        </tr>
-                        <tr data-id="2" data-name="Marie Randrianasolo" data-engagement="Musicien" data-role="member"
-                            data-address="Toamasina" data-phone="+261 33 45 678 90"
-                            data-facebook="https://facebook.com/marierandrianasolo" data-email="marie@example.com"
-                            data-image="/assets/img/grid_6.jpg">
-                            <td class="member-info">
-                                <img src="/assets/img/grid_6.jpg" alt="" class="rounded-circle">
-                                <div>
-                                    <span class="member-name">Randrianasolo Marie</span><br>
-                                    <small>Musicien</small>
-                                </div>
-                            </td>
-                            <td>
-                                <button class="btn btn-danger btn-sm float-end"><i class="fa fa-trash"></i></button>
-                                <button class="btn btn-warning btn-sm me-2 float-end"><i class="fa fa-edit"></i></button>
-                            </td>
-                        </tr>
-                        <tr id="noResultsRow" style="display: none;">
-                            <td colspan="2" style="text-align: center;">Aucun membre trouvé</td>
-                        </tr>
+                        <% }) %>
                     </tbody>
+                    
                 </table>
+                <% } else {%>
+                    <div class="text-center p-4">
+                        <span class="text-secondary fw-bold">Aucun membre inscrit dans la base de donnée.</span>
+                    </div>
+                <% } %>
+                <div id="noResultsRow" class="text-center">
+                    <span class="text-secondary p-2 fw-bold">Aucun membre trouvé</span>
+                </div>
                 
             </div>
         </div>
@@ -78,7 +56,7 @@
             <div class="profile-container" id="profileSection">
                 <img id="profileImage" src="/assets/img/avatar.png" alt="Photo de profil">
                 <div class="profile-info">
-                    <h5 id="profileName">Nom du membre</h5>
+                    <h5 id="profileName" class="fw-bold">Nom du membre</h5>
                     <div class="profile-role" id="profileRole">Role du membre</div>
                     <div class="profile-address" id="profileAddress">adresse du membre</div>
                     <div class="profile-phone" id="profilePhone">Téléphone</div>
@@ -86,8 +64,58 @@
                         <a id="profileFacebook" href="#" target="_blank"><i class="fab fa-facebook"></i></a>
                         <a id="profileEmail" href="#"><i class="fas fa-envelope"></i></a>
                     </div>
+                    <% if(user){ %>
+                        <div class="button mt-4">
+                            <!-- Bouton Modifier -->
+                            <a class="btn btn-warning btn-sm me-2 btn-edit"  href="">
+                                <i class="fa fa-edit"></i> Modifier
+                            </a>
+                        
+                            <!-- Bouton Supprimer -->
+                            <button class="btn btn-danger btn-sm delete-btn btn-delete">
+                                <i class="fa fa-trash"></i> Supprimer
+                            </button>
+                        </div>
+                    <% } %>
+                    
+                    
                 </div>
             </div>
+        </div>
+
+        
+        
+    </div>
+</div>
+
+<!-- POPUP MOBILE -->
+<div class="overlay" id="overlay"></div>
+<div class="profile-popup" id="profilePopup">
+    <button class="close-btn" id="closePopup"><i class="fa fa-close"></i></button>
+    <div class="profile-container">
+        <img id="popupImage" src="" alt="Photo de profil">
+        <div class="profile-info">
+            <h5 id="popupName"></h5>
+            <div class="profile-role" id="popupRole"></div>
+            <div class="profile-address" id="popupAddress"></div>
+            <div class="profile-phone" id="popupPhone"></div>
+            <div class="profile-icons">
+                <a id="popupFacebook" href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a id="popupEmail" href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+            <% if(user){ %>
+                <div class="button mt-4">
+                    <!-- Bouton Modifier -->
+                    <a class="btn btn-warning btn-sm me-2 btn-edit-popUp"  href="">
+                        <i class="fa fa-edit"></i> Modifier
+                    </a>
+                
+                    <!-- Bouton Supprimer -->
+                    <button class="btn btn-danger btn-sm delete-btn btn-delete-popUp">
+                        <i class="fa fa-trash"></i> Supprimer
+                    </button>
+                </div>
+            <% } %>
         </div>
     </div>
 </div>

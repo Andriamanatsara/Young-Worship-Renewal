@@ -6,6 +6,8 @@ document.querySelectorAll("tbody tr").forEach(row => {
 });
 
 function updateProfile(element) {
+    // Récupération des données du membre
+    let id = element.dataset.id; // ID du membre
     let name = element.dataset.name;
     let engagement = element.dataset.engagement;
     let role = element.dataset.role;
@@ -24,7 +26,11 @@ function updateProfile(element) {
     document.getElementById("profileFacebook").href = facebook;
     document.getElementById("profileEmail").href = "mailto:" + email;
 
-    // Mise à jour du popup mobile
+    // Mise à jour des boutons dynamiques
+    document.querySelector(".btn-edit").href = `/admin/edit/${id}`; // Bouton "Modifier"
+    document.querySelector(".btn-delete").setAttribute("data-id", id); // Bouton "Supprimer"
+
+    // Mise à jour du popup mobile (si nécessaire)
     document.getElementById("popupImage").src = image;
     document.getElementById("popupName").textContent = name;
     document.getElementById("popupRole").textContent = role;
@@ -36,6 +42,10 @@ function updateProfile(element) {
     // Affichage du popup sur mobile
     document.getElementById("profilePopup").classList.add("active");
     document.getElementById("overlay").classList.add("active");
+
+    // Mise à jour des boutons dynamiques
+    document.querySelector(".btn-edit-popUp").href = `/admin/edit/${id}`; // Bouton "Modifier"
+    document.querySelector(".btn-delete-popUp").setAttribute("data-id", id); // Bouton "Supprimer"
 }
 
 // --- FERMETURE DU POPUP ---
@@ -48,6 +58,62 @@ document.getElementById("overlay").addEventListener("click", () => {
     document.getElementById("profilePopup").classList.remove("active");
     document.getElementById("overlay").classList.remove("active");
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // --- RECHERCHE AVEC SUPPRESSION ---
 document.getElementById("searchInput").addEventListener("input", function() {
@@ -74,7 +140,7 @@ document.getElementById("searchInput").addEventListener("input", function() {
 
     // Afficher ou masquer le message "Aucun membre trouvé"
     if (!found && filter.length > 0) {
-        noResultsRow.style.display = ""; 
+        noResultsRow.style.display = "flex"; 
     } else {
         noResultsRow.style.display = "none"; 
     }
@@ -112,7 +178,7 @@ function sortTable(columnIndex) {
 
     // Mettre à jour l'icône de tri
     let indicator = document.querySelector(".sort-indicator");
-    indicator.innerHTML = sortDirection === 1 ? "▲" : "▼";
+    indicator.innerHTML = sortDirection === 1 ? "Z - A ▲" : "A - Z ▼";
     
     sortDirection *= -1; // Inverser le tri pour le prochain clic
 }

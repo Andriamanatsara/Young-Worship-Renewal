@@ -274,3 +274,13 @@ line-height: 1.2;
       }
 
   }
+
+
+  .popup{
+    position: fixed;
+    top: -200px;
+    left: 50%;
+    z-index: 1050;
+    transition-duration: .5s;
+    transform: translateX(-50%);
+}

@@ -20,7 +20,13 @@
         <div class="bg-overlay"></div>
     </div>
     <!-- Rectangle gauche avec logo -->
-  <div class="logo-container"></div>
+  <div class="logo-container">
+    <div class="logo-content mt-4">
+      <a href="/" class="navbar-brand">
+      <img src="/assets/img/Logo YWR 500px noir.png" alt="logo" class="logo me-5" width="150">
+      </a>
+  </div>
+  </div>
   <div class="logo-container-style"></div>
   <div class="circle-container">
     <img src="assets/img/david.jpg" alt="Image" class="images">
@@ -30,17 +36,17 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
         <div class="me-5">
-            <a href="#" class="navbar-brand">
-            <img src="/assets/img/Logo YWR 500px noir.png" alt="logo" class="logo me-5" width="150">
+            <a href="/" class="navbar-brand">
+            <img src="/assets/img/Logo YWR 500px noir.png" alt="logo" class="logo me-5" width="150" style="opacity: 0;">
             </a>
         </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-2 fs-5 fw-bold">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-2 fs-5">
             <li class="nav-item ">
-                <a href="#" class="nav-link active">Acceuil</a>
+                <a href="" class="nav-link active">Acceuil</a>
             </li>
             <li class="nav-item ">
                 <a href="/membres" class="nav-link">Membres</a>
@@ -52,8 +58,18 @@
                 <a href="#contact" class="nav-link">Contact</a>
             </li>
             </ul>
-            <a href="/auth/login" class="btn btn-success btn-connect" role="button">Connexion</a>
-            
+            <% if (user) { %>
+              <div class="btn-group">
+                <a href="/admin/tableau-de-bord" class="btn btn-light text-dark btn-sm btn-connect" role="button"><i class="bi bi-speedometer2"></i> Tableau de bord</a>
+                
+                <button type="button" class="btn btn-danger btn-connect btn-sm" title="Déconnexion" onclick="openConfirmationModal('Déconnecter')">
+                  <i class="fa fa-sign-out-alt"></i> <span class="d-none d-md-inline">Déconnexion</span>
+                </button>
+              </div>
+              
+            <% } else { %>
+              <a href="/users/login" class="btn btn-success btn-connect" role="button">Se Connecter</a>
+            <% } %>
         </div>
         </div>
     </nav>
@@ -88,41 +104,40 @@
               
               <div class="carousel-inner ">
                 <div class="carousel-item active">
-                    <div class="carousel-content text-center">
-                        
-                        <button class="btn btn-primary btn-block ico   n-button rounded-circle p-3 bg-dark border-0 mb-3" type="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512" width="1em" height="1em" fill="currentColor" style="font-size: 50px" >
-                            <path d="M448 336v-288C448 21.49 426.5 0 400 0H96C42.98 0 0 42.98 0 96v320c0 53.02 42.98 96 96 96h320c17.67 0 32-14.33 32-31.1c0-11.72-6.607-21.52-16-27.1v-81.36C441.8 362.8 448 350.2 448 336zM144 144c0-8.875 7.125-15.1 16-15.1L208 128V80c0-8.875 7.125-15.1 16-15.1l32 .0009c8.875 0 16 7.12 16 15.1V128L320 128c8.875 0 16 7.121 16 15.1v32c0 8.875-7.125 16-16 16L272 192v112c0 8.875-7.125 16-16 16l-32-.0002c-8.875 0-16-7.127-16-16V192L160 192c-8.875 0-16-7.127-16-16V144zM384 448H96c-17.67 0-32-14.33-32-32c0-17.67 14.33-32 32-32h288V448z"></path>
-                            </svg>
-                        </button>
-                        
-                        <p class="text-center fst-italic" style="font-size: 16px;font-weight: 600;">"Je connais tes oeuvres. Je sais que tu n'est ni froid ni bouillant. Puisses-tu etre froid ou bouillant!"</p>
-                        <p class="text-center fw-bold">Apoclipsy 3:15</p>
-                    </div>
+                  <div class="carousel-content text-center">  
+                    <button class="btn btn-primary btn-block ico   n-button rounded-circle p-3 bg-dark border-0 mb-3" type="button">
+                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512" width="1em" height="1em" fill="currentColor" style="font-size: 50px" >
+                       <path d="M448 336v-288C448 21.49 426.5 0 400 0H96C42.98 0 0 42.98 0 96v320c0 53.02 42.98 96 96 96h320c17.67 0 32-14.33 32-31.1c0-11.72-6.607-21.52-16-27.1v-81.36C441.8 362.8 448 350.2 448 336zM144 144c0-8.875 7.125-15.1 16-15.1L208 128V80c0-8.875 7.125-15.1 16-15.1l32 .0009c8.875 0 16 7.12 16 15.1V128L320 128c8.875 0 16 7.121 16 15.1v32c0 8.875-7.125 16-16 16L272 192v112c0 8.875-7.125 16-16 16l-32-.0002c-8.875 0-16-7.127-16-16V192L160 192c-8.875 0-16-7.127-16-16V144zM384 448H96c-17.67 0-32-14.33-32-32c0-17.67 14.33-32 32-32h288V448z"></path>
+                       </svg>
+                   </button>
+                   <p class="text-center fst-italic" style="font-size: 16px;font-weight: 600;">"Que personne ne méprise ta jeunesse; mais sois un modèle pour les fidèles, en parole, en conduite, en charité, en foi, en pureté."</p>
+                   <p class="text-center fw-bold">1 Timothée 4: 12</p>
+                 </div>
                 </div>
                 <div class="carousel-item">
                   <div class="carousel-content text-center">
                     
-                     <button class="btn btn-primary btn-block ico   n-button rounded-circle p-3 bg-dark border-0 mb-3" type="button">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512" width="1em" height="1em" fill="currentColor" style="font-size: 50px" >
-                        <path d="M448 336v-288C448 21.49 426.5 0 400 0H96C42.98 0 0 42.98 0 96v320c0 53.02 42.98 96 96 96h320c17.67 0 32-14.33 32-31.1c0-11.72-6.607-21.52-16-27.1v-81.36C441.8 362.8 448 350.2 448 336zM144 144c0-8.875 7.125-15.1 16-15.1L208 128V80c0-8.875 7.125-15.1 16-15.1l32 .0009c8.875 0 16 7.12 16 15.1V128L320 128c8.875 0 16 7.121 16 15.1v32c0 8.875-7.125 16-16 16L272 192v112c0 8.875-7.125 16-16 16l-32-.0002c-8.875 0-16-7.127-16-16V192L160 192c-8.875 0-16-7.127-16-16V144zM384 448H96c-17.67 0-32-14.33-32-32c0-17.67 14.33-32 32-32h288V448z"></path>
-                        </svg>
-                    </button>
-                    <p class="text-center fst-italic" style="font-size: 16px;font-weight: 600;">"Que personne ne méprise ta jeunesse; mais sois un modèle pour les fidèles, en parole, en conduite, en charité, en foi, en pureté."</p>
-                    <p class="text-center fw-bold">1 Timothée 4: 12</p>
-                </div>
+                    <button class="btn btn-primary btn-block ico   n-button rounded-circle p-3 bg-dark border-0 mb-3" type="button">
+                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512" width="1em" height="1em" fill="currentColor" style="font-size: 50px" >
+                       <path d="M448 336v-288C448 21.49 426.5 0 400 0H96C42.98 0 0 42.98 0 96v320c0 53.02 42.98 96 96 96h320c17.67 0 32-14.33 32-31.1c0-11.72-6.607-21.52-16-27.1v-81.36C441.8 362.8 448 350.2 448 336zM144 144c0-8.875 7.125-15.1 16-15.1L208 128V80c0-8.875 7.125-15.1 16-15.1l32 .0009c8.875 0 16 7.12 16 15.1V128L320 128c8.875 0 16 7.121 16 15.1v32c0 8.875-7.125 16-16 16L272 192v112c0 8.875-7.125 16-16 16l-32-.0002c-8.875 0-16-7.127-16-16V192L160 192c-8.875 0-16-7.127-16-16V144zM384 448H96c-17.67 0-32-14.33-32-32c0-17.67 14.33-32 32-32h288V448z"></path>
+                       </svg>
+                   </button>
+                   
+                   <p class="text-center fst-italic" style="font-size: 16px;font-weight: 600;">"Mais l'heure vient, et elle est déjà venue, où les vrais adorateurs adoreront le Père en esprit et en vérité; car ce sont là les adorateurs que le Père demande."</p>
+                   <p class="text-center fw-bold">Jean 4: 23</p>
+                  </div>
                 </div>
                 <div class="carousel-item">
                   <div class="carousel-content text-center">
-                    
-                     <button class="btn btn-primary btn-block ico   n-button rounded-circle p-3 bg-dark border-0 mb-3" type="button">
+                        
+                    <button class="btn btn-primary btn-block ico   n-button rounded-circle p-3 bg-dark border-0 mb-3" type="button">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512" width="1em" height="1em" fill="currentColor" style="font-size: 50px" >
                         <path d="M448 336v-288C448 21.49 426.5 0 400 0H96C42.98 0 0 42.98 0 96v320c0 53.02 42.98 96 96 96h320c17.67 0 32-14.33 32-31.1c0-11.72-6.607-21.52-16-27.1v-81.36C441.8 362.8 448 350.2 448 336zM144 144c0-8.875 7.125-15.1 16-15.1L208 128V80c0-8.875 7.125-15.1 16-15.1l32 .0009c8.875 0 16 7.12 16 15.1V128L320 128c8.875 0 16 7.121 16 15.1v32c0 8.875-7.125 16-16 16L272 192v112c0 8.875-7.125 16-16 16l-32-.0002c-8.875 0-16-7.127-16-16V192L160 192c-8.875 0-16-7.127-16-16V144zM384 448H96c-17.67 0-32-14.33-32-32c0-17.67 14.33-32 32-32h288V448z"></path>
                         </svg>
                     </button>
                     
-                    <p class="text-center fst-italic" style="font-size: 16px;font-weight: 600;">"Mais l'heure vient, et elle est déjà venue, où les vrais adorateurs adoreront le Père en esprit et en vérité; car ce sont là les adorateurs que le Père demande."</p>
-                    <p class="text-center fw-bold">Jean 4: 23</p>
+                    <p class="text-center fst-italic" style="font-size: 16px;font-weight: 600;">"Je connais tes oeuvres. Je sais que tu n'est ni froid ni bouillant. Puisses-tu etre froid ou bouillant!"</p>
+                    <p class="text-center fw-bold">Apoclipsy 3:15</p>
                 </div>
                 </div>
                 <div class="carousel-item">
@@ -165,7 +180,7 @@
     <section class="grid-container my-4" >
       <div class="row">
         <div class="col-md-6 grid-item">
-          <img src="assets/img/Grid_1.jpg" alt="1.1" class="survol">
+          <img src="assets/img/grid_1.jpg" alt="1.1" class="survol">
         </div>
         <div class="col-md-6 grid-item">
           <div class="text-overlay historique" id="historique">
@@ -237,8 +252,15 @@
             <p class="fs-5 mt-0 mb-0">Responsable</p>
             <i class="bi bi-quote quote-icon"></i>
           </div>
+          <div class="lire-plus">
+            <a href="#" class="nav-link">
+              Lire plus
+              <i class="fas fa-arrow-right fw-bold"></i>
+            </a>
+          </div>
         </div>
       </div>
+      
     </div>
 
     <%- include('./partials/footer.ejs') %>
@@ -247,9 +269,12 @@
     <button class="btn btn-primary" id="scrollTopBtn" title="Retour en haut"><i class="bi bi-arrow-up fs-3 fw-bold"></i></button>
 
 
-    <!-- <div class="popup alert alert-success text-center" id="popupMessage" role="alert">
-      Bienvenue,nous somme YWR
-    </div> -->
+    <% if (message) { %>
+      <div class="popup alert alert-<%= message.type %> text-center" id="popupMessage" role="alert">
+        <%= message.message %>
+      </div>
+   <% } %>
+   
 
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>

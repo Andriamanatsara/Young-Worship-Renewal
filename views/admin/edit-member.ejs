@@ -1,0 +1,152 @@
+<%- include('../partials/dashboard-header.ejs') %>
+
+<div class="container">
+    <div class="container">
+        <h2 class="fw-bold title"><small>Modifier l'information de <%= member.name %></small></h2>
+        <form enctype="multipart/form-data" id="memberForm" method="POST" action="">
+            <div class="row">
+                <div class="col-md-6 pe-3">
+                    <h5 class="p-3"><small>Champs obligatoires</small></h5>
+                    <div class="mb-3">
+                        <input type="text" class="form-control shadow" id="name" name="name" placeholder="Nom" value="<%= member.name %>">
+                        <div class="text-danger" id="error-name" style="font-size: 12px;"></div> <!-- Erreur pour le nom -->
+                    </div>
+        
+                    <div class="mb-3">
+                        <input type="text" class="form-control shadow" id="surname" name="surname" placeholder="Prénom" value="<%= member.surname %>">
+                        <div class="text-danger" id="error-surname" style="font-size: 12px;"></div> <!-- Erreur pour le prénom -->
+                    </div>
+        
+                    <div class="mb-3">
+                        <input type="text" id="dateOfBirth" class="form-control shadow" placeholder="Date de naissance" value="<%= member.dateOfBirth %>" onfocus="switchToDatePicker()" name="dateOfBirth"/>
+                        <div class="text-danger" id="error-dateOfBirth" style="font-size: 12px;"></div> 
+                        <script>
+                            function switchToDatePicker() {
+                                const input = document.getElementById('dateOfBirth');
+                                input.type = 'date';  // Change type pour afficher le sélecteur de date
+                            }
+                        </script>
+                    </div>
+        
+                    <div class="mb-3">
+                        <input type="text" class="form-control shadow" id="adress" name="adress" placeholder="Adresse" value="<%= member.adress %>">
+                        <div class="text-danger" id="error-adress" style="font-size: 12px;"></div> <!-- Erreur pour l'adresse -->
+                    </div>
+        
+                    <div class="mb-3">
+                        <input type="text" class="form-control shadow" id="phoneNumber" name="phoneNumber" placeholder="Téléphone" value="<%= member.phoneNumber %>">
+                        <div class="text-danger" id="error-phoneNumber" style="font-size: 12px;"></div> <!-- Erreur pour le téléphone -->
+                    </div>
+        
+                    <div class="mb-3">
+                        <select id="engagement" class="form-control shadow" name="engagement">
+                            <option value="<%= member.name %>" disabled selected><%= member.engagement %></option>
+                            <option value="Chanteur">Chanteur</option>
+                            <option value="Danseur">Danseur</option>
+                            <option value="Media">Media</option>
+                            <option value="Messagier">Messagier</option>
+                            <option value="Intercesseur">Intercesseur</option>
+                            <option value="Logistique">Logistique</option>
+                        </select>
+                        <div class="text-danger" id="error-engagement" style="font-size: 12px;"></div> <!-- Erreur pour l'engagement -->
+                    </div>
+        
+                    <div class="mb-3">
+                        <input type="text" id="adhesionDate" class="form-control shadow" name="adhesionDate" placeholder="Date d'adhésion" value="<%= member.adhesionDate %>" onfocus="switchToDatePickerAdhesion()"/>
+                        <div class="text-danger" id="error-adhesionDate" style="font-size: 12px;"></div>
+                        <script>
+                            function switchToDatePickerAdhesion() {
+                                const input = document.getElementById('adhesionDate');
+                                input.type = 'date';  // Change type pour afficher le sélecteur de date
+                            }
+                        </script>
+                    </div>
+                </div>
+        
+                <div class="col-md-6">
+                    <h5 class="p-3"><small>Photo de profil</small></h5>
+                    <div class="d-flex justify-content-center">
+                        <% if (member && member.screenMember){%>
+                        <label for="imageInput" class="preview-container" id="previewBox">
+                            <input type="hidden" value="<%= member.screenMember %>" name="old_image">
+                            <i class="fas fa-camera icon-camera" id="cameraIcon"></i>
+                            <img id="preview" src="/Pictures/<%= member.screenMember %>" alt="Aperçu de l'image">
+                            <button type="button" class="remove-btn" id="removeImage">&times;</button>
+                            <div class="hover-text" id="hoverText">Ajouter une photo de profil</div>
+                        </label>
+                        <input type="file" id="imageInput" class="hidden-input" name="screenMember" accept="image/*">
+                        <% } else { %>
+                            <input type="file" id="imageInput" class="hidden-input" name="screenMember" accept="image/*">
+                        <% } %>
+                    </div>
+                    <div id="error-screenMember" class="text-danger" style="font-size: 12px;"></div>
+                    
+                    <h5 class="p-3 "><small>Champs optionnels</small></h5>
+                    <div class="mb-3">
+                        <input type="text" class="form-control shadow" id="facebook" name="facebook" placeholder="Facebook" value="<%= member.facebook %>">
+                        <div class="text-danger" id="error-facebook" style="font-size: 12px;"></div> <!-- Erreur pour Facebook -->
+                    </div>
+                    
+                    <div class="mb-3">
+                        <input type="email" class="form-control shadow" id="email" name="email" placeholder="Mail" value="<%= member.email %>">
+                        <div class="text-danger" id="error-email" style="font-size: 12px;"></div> <!-- Erreur pour l'email -->
+                    </div>
+        
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary w-100">Rejoindre</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    const elements = document.querySelectorAll(".translate");
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    elements.forEach(element => observer.observe(element));
+    observer.observe(translateX);
+  </script>
+
+  <script>
+     const imageInput = document.getElementById('imageInput');
+      const preview = document.getElementById('preview');
+      const cameraIcon = document.getElementById('cameraIcon');
+      const removeBtn = document.getElementById('removeImage');
+      const hoverText = document.getElementById('hoverText');
+
+      imageInput.addEventListener('change', function(event) {
+          const file = event.target.files[0];
+          if (file) {
+              const reader = new FileReader();
+              reader.onload = function(e) {
+                  preview.src = e.target.result;
+                  preview.style.display = "block";
+                  cameraIcon.style.display = "none";
+                  removeBtn.style.display = "flex";
+                  hoverText.textContent = "Changer la photo de profil"; 
+              };
+              reader.readAsDataURL(file);
+          }
+      });
+
+      removeBtn.addEventListener('click', function(event) {
+          event.stopPropagation();
+          preview.src = "";
+          preview.style.display = "none";
+          cameraIcon.style.display = "block";
+          removeBtn.style.display = "none";
+          hoverText.textContent = "Ajouter une photo de profil";
+          imageInput.value = "";
+      });
+  </script>
+
+<%- include('../partials/dashboard-footer.ejs') %>

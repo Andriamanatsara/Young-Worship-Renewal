@@ -2,10 +2,23 @@
 <!-- Fin Main-->
 
 </div>
-<script src="/assets/js/dashboard.js"></script>
+  <script src="/assets/js/dashboard.js"></script>
   <script src="/assets/js/membre.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+  <script>
+      function showPopup() {
+        const popup = document.getElementById("popupMessage");
+        popup.style.top = "50px";
 
+        setTimeout(() => {
+          popup.style.top = "-200px";
+        }, 8000);
+      }
+
+    window.onload = showPopup;
+  </script>
 
 </body>
 </html>

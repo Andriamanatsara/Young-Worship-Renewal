@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
   scrollTopBtn.onclick = function () {
     window.scrollTo({
       top: 0,
-      behavior: "smooth", // Défilement fluide
+      behavior: "smooth", 
     });
   };
 
@@ -39,7 +39,19 @@ function showPopup() {
 
   setTimeout(() => {
     popup.style.top = "-200px";
-  }, 5000);
+  }, 8000);
 }
 
 window.onload = showPopup;
+
+document.querySelector('.logout-btn').addEventListener('click', (event) => {
+  event.preventDefault();
+
+  // Message générique
+  const confirmLogout = confirm("Êtes-vous sûr(e) de vouloir vous déconnecter ?");
+  if (confirmLogout) {
+      // Redirection vers la route de déconnexion
+      window.location.href = '/logout';
+  }
+});
+

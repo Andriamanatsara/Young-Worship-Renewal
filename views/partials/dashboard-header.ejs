@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= title %></title>
   <link rel="icon" type="image/x-icon" href="/assets/img/Logo YWR 500px blanc.png">
+  <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="/assets/css/styles.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -13,10 +15,11 @@
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
   <link rel="stylesheet" href="/assets/css/dashboard.css">
   <link rel="stylesheet" href="/assets/css/membre.css">
+  <link rel="stylesheet" href="/assets/css/rejoign.css">
 </head>
 </head>
 <body>
-
+  
   <button class="hamburger-btn" onclick="toggleSidebar()">
     <i class="bi bi-menu-button"></i>
   </button>
@@ -34,11 +37,11 @@
       <!-- Menu -->
       
         <div class="menu fw-bold">
-        <a href="/admin/tableau-de-bord" class="btn menu-item <%= page === 'dashboard' ? 'active' : '' %>"><i class="bi bi-speedometer2"></i> Tableau de bord</a>
-        <a href="/admin/liste-membre" class="btn menu-item <%= page === 'liste-membre' ? 'active' : '' %>"><i class="bi bi-people"></i> Membres</a>
-        <a href="#" class="btn menu-item"><i class="bi bi-cash-stack"></i> Comptabilité</a>
-        <a href="#" class="btn menu-item"><i class="bi bi-file-earmark-text"></i> Raport</a>
-        <a href="#" class="btn menu-item" style="margin-top: auto;"><i class="bi bi-gear"></i> Paramètre</a>
+          <a href="/admin/tableau-de-bord" class="btn menu-item <%= page === 'dashboard' ? 'active' : '' %>"><i class="bi bi-speedometer2"></i> Tableau de bord</a>
+          <a href="/admin/liste-membre" class="btn menu-item <%= page === 'liste-membre' ? 'active' : '' %>"><i class="bi bi-people"></i> Membres</a>
+          <a href="/admin/comptabilite" class="btn menu-item  <%= page === 'account' ? 'active' : '' %>"><i class="bi bi-cash-stack"></i> Comptabilité</a>
+          <a href="/admin/requests" class="btn menu-item  <%= page === 'member-request' ? 'active' : '' %>"><i class="bi bi-person-lines-fill"></i> Gestion</a>
+          <a href="#" class="btn menu-item" style="margin-top: auto;"><i class="bi bi-gear"></i> Paramètre</a>
         </div>
       <!-- Footer -->
       <div class="footer">
@@ -48,5 +51,62 @@
     </div>
   </div>
 
+
   <!-- Main content -->
   <div class="main-content mt-4">
+    <div class="top-container mb-4">
+      <div class="top-right-content">
+          <!-- Profil -->
+          <div class="profile-section">
+            <i class="bi bi-person-circle"></i>
+            <span>Profil</span>
+          </div>
+    
+          <!-- Search bar -->
+          <form class="search-bar" method="GET" action="#">
+            <input type="text" placeholder="Recherche..." name="search">
+            <button type="submit"><i class="bi bi-search"></i></button>
+          </form>
+      </div>
+      <div class="btn-disconnect">
+        <button type="button" class="btn btn-danger btn-connect btn-sm" title="Déconnexion" onclick="openConfirmationModal('Déconnecter')">
+            <i class="fa fa-sign-out-alt"></i> <span class="d-none d-md-inline">Déconnexion</span>
+        </button>
+      </div>
+  </div> 
+
+  <% if (message) { %>
+    <div class="popup alert alert-<%= message.type %> text-center" id="popupMessage" role="alert">
+      <%= message.message %>
+    </div>
+ <% } %>
+
+ <!-- Modal de confirmation -->
+<div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="confirmationModalLabel"><img src="/assets/img/Logo YWR 500px noir.png" alt="logo" width="50"> Déconnexion</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <p id="modalMessage" class="text-center">Êtes-vous sûr de vouloir continuer ?</p>
+          </div>
+          <div class="modal-footer border-0">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+              <a href="/users/logout" type="button" class="btn btn-danger" id="confirmDisconnect">Déconnexion</a>
+          </div>
+      </div>
+  </div>
+</div>
+
+<script>
+
+  function openConfirmationModal(action)  {
+      document.getElementById('modalMessage').textContent = `Êtes-vous sûr(e) de vouloir vous ${action.toLowerCase()} ?`;
+      
+      const modal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+      modal.show();
+  }
+
+</script>
